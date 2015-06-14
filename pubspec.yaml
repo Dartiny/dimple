@@ -1,0 +1,9 @@
+name: dimple
+description: Simple Dependency Injection & Service Container
+version: 0.0.0
+author: Roman Shamritskiy <roman@litgroup.ru>
+homepage: https://github.com/Dartiny/dimple
+environment:
+  sdk: '^1.10.0'
+dev_dependencies:
+  test: '^0.12.3'
