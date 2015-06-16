@@ -15,7 +15,7 @@ class _ContainerImplementation implements Container {
   Object getParameter(String key, {Object fallback: const NullParameter()}) {
     if (!hasParameter(key)) {
       if (fallback is NullParameter) {
-        throw new ParameterNotFountError(key);
+        throw new ParameterNotFoundError(key);
       } else {
         return fallback;
       }

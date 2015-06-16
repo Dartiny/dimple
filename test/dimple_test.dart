@@ -63,7 +63,7 @@ void main() {
     });
 
     test('.getParameter() for nonexistent key.', () {
-      expect(() => container.getParameter('nonexisten'), throwsA(const isInstanceOf<ParameterNotFountError>()));
+      expect(() => container.getParameter('nonexisten'), throwsA(const isInstanceOf<ParameterNotFoundError>()));
     });
 
     test('.getParameter() for nonexistent key with fallback.', () {

@@ -4,16 +4,16 @@
 
 part of dimple;
 
-class ParameterNotFountError extends Error {
+class ParameterNotFoundError extends Error {
 
   final String parameterKey;
 
-  ParameterNotFountError(this.parameterKey);
+  ParameterNotFoundError(this.parameterKey);
 
   String toString() {
     final key = Error.safeToString(parameterKey);
 
-    return 'Parameter with key $key cannot be fount in the Service Container.';
+    return 'Parameter with key $key cannot be found in the Service Container.';
   }
 }
 
@@ -26,6 +26,6 @@ class ServiceNotFoundError extends Error {
   String toString() {
     final id = Error.safeToString(serviceId);
 
-    return 'Service identified by $id cannot be fount in the Service Container.';
+    return 'Service identified by $id cannot be found in the Service Container.';
   }
 }
