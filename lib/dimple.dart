@@ -9,4 +9,5 @@ part 'src/container_implementation.dart';
 part 'src/container_builder.dart';
 part 'src/container_extension.dart';
 part 'src/service_factory.dart';
+part 'src/null_parameter.dart';
 part 'src/errors.dart';
