@@ -4,8 +4,8 @@
 set -e
 
 # Verify that the libraries are error free.
-pub global activate tuneup
-pub global run tuneup check
+#pub global activate tuneup
+#pub global run tuneup check
 
 # Verify code style.
 # pub global activate linter

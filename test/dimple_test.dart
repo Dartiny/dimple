@@ -9,6 +9,7 @@ import 'package:mockito/mockito.dart';
 /*
  * Mocks
  */
+@proxy
 class MockExtension extends Mock implements ContainerExtension {}
 
 class FooService {
