@@ -9,6 +9,7 @@ import 'package:mockito/mockito.dart';
 /*
  * Mocks
  */
+
 @proxy
 class MockExtension extends Mock implements ContainerExtension {}
 
@@ -23,6 +24,7 @@ class BarService {}
 /*
  * main()
  */
+
 void main() {
   ContainerBuilder builder;
   Container container;
@@ -64,6 +66,10 @@ void main() {
       expect(() => container.getParameter('nonexisten'), throwsA(const isInstanceOf<ParameterNotFountError>()));
     });
 
+    test('.getParameter() for nonexistent key with fallback.', () {
+      expect(container.getParameter('nonexisten', fallback: 'some_default_value'), equals('some_default_value'));
+    });
+
     test('.hasParameter() for existent key.', () {
       expect(container.hasParameter('param1'), isTrue);
       expect(container.hasParameter('param2'), isTrue);
@@ -84,8 +90,12 @@ void main() {
       expect(container.hasService('nonexistent'), isFalse);
     });
 
-    test('.getService() for nonexistent service.', () {
+    test('.getService() for nonexistent (required) service.', () {
       expect(() => container.getService('nonexistent'), throwsA(const isInstanceOf<ServiceNotFoundError>()));
+    });
+
+    test('.getService() for nonexistent (non-required) service.', () {
+      expect(container.getService('nonexistent', required: false), isNull);
     });
 
     test('.hasService() for existent service.', () {

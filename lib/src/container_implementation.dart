@@ -12,9 +12,13 @@ class _ContainerImplementation implements Container {
 
   _ContainerImplementation(this._parameters, this._factories);
 
-  Object getParameter(String key) {
+  Object getParameter(String key, {Object fallback: const NullParameter()}) {
     if (!hasParameter(key)) {
-      throw new ParameterNotFountError(key);
+      if (fallback is NullParameter) {
+        throw new ParameterNotFountError(key);
+      } else {
+        return fallback;
+      }
     }
 
     return _parameters[key];
@@ -28,9 +32,13 @@ class _ContainerImplementation implements Container {
     return _factories.containsKey(id);
   }
 
-  Object getService(String id) {
+  Object getService(String id, {bool required: true}) {
     if (!hasService(id)) {
-      throw new ServiceNotFoundError(id);
+      if (required) {
+        throw new ServiceNotFoundError(id);
+      } else {
+        return null;
+      }
     }
 
     if (!_instances.containsKey(id)) {

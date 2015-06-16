@@ -8,11 +8,11 @@ abstract class Container {
 
   bool hasService(String id);
 
-  Object getService(String id);
+  Object getService(String id, {bool required: true});
 
   bool hasParameter(String key);
 
-  Object getParameter(String key);
+  Object getParameter(String key, {Object fallback: const NullParameter()});
 }
 
 
