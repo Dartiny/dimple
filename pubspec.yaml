@@ -1,6 +1,6 @@
 name: dimple
 description: Simple Dependency Injection & Service Container
-version: 0.0.0
+version: 0.1.0-beta.1
 authors:
   - Roman Shamritskiy <roman@litgroup.ru>
   - Vladimir Bogutskiy <ustas@litgroup.ru>
