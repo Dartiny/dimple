@@ -66,6 +66,7 @@ class _ContainerImpl implements Container {
       }
 
       _loading.add(id);
+
       return  factory(this);
 
     } finally {

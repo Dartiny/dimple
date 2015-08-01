@@ -14,9 +14,7 @@ abstract class _Error extends Error {
 
   @override
   String toString() {
-    return message == null
-        ? _errorName
-        : '$_prefix $message';
+    return '$_prefix $message';
   }
 }
 
