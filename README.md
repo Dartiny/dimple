@@ -1,7 +1,7 @@
 Dimple
 ======
 
-*SimpleDependency Injection & Service Container*
+*SimpleDependency Injection and Service Container*
 
 [![Pub version](https://img.shields.io/pub/v/dimple.svg)](https://pub.dartlang.org/packages/dimple)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Dartiny/dimple/blob/master/LICENSE)
