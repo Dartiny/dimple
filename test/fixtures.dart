@@ -2,9 +2,13 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // MIT license that can be found in the LICENSE file.
 
-part of dimple;
+library dimple.test.fistures;
 
-abstract class ContainerExtension {
+class SimpleService {}
 
-  void load(ContainerBuilder builder);
+class DependencyAwareService {
+  var dependency1;
+  var dependency2;
+
+  DependencyAwareService(this.dependency1, [this.dependency2]);
 }

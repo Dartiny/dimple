@@ -7,42 +7,50 @@ part of dimple;
 /// [Container] builder.
 class ContainerBuilder {
 
-  bool _frozen = false;
+  Map<String, Object> _parameters;
+  Map<String, ServiceFactory> _factories;
+  Set<ServiceProvider> _providers;
 
-  final Map<String, Object> _parameters = new Map<String, Object>();
-  final Map<String, ServiceFactory> _factories = new Map<String, ServiceFactory>();
+  ContainerBuilder() {
+    _init();
+  }
 
   /// Sets a parameter identified by [key].
   ///
   /// If parameter with a given [key] already exists it will be overridden by a new [value].
   void setParameter(String key, Object value) {
-    _checkState();
-    _parameters[key] = value;
+    _parameters[key.toLowerCase()] = value;
   }
 
   /// Registers a [factory] for the service identified by [id].
-  void registerService(String id, ServiceFactory factory) {
-    _checkState();
-    _factories[id] = factory;
+  void addService(String id, ServiceFactory factory) {
+    _factories[id.toLowerCase()] = factory;
   }
 
-  /// Registers an [extension] for package services' registration.
-  void registerExtension(ContainerExtension extension) {
-    _checkState();
-    extension.load(this);
+  /// Registers an [ServiceProvider] for package services' registration.
+  void register(ServiceProvider provider) {
+    _providers.add(provider);
   }
 
-  /// Creates a container.
-  Container createContainer() {
-    _checkState();
-    _frozen = true;
+  /// Creates a container and resets the builder.
+  Container build() {
+    _loadProviders();
 
-    return new _ContainerImplementation(_parameters, _factories);
+    var container = new _ContainerImpl(_parameters, _factories);
+    _init();
+
+    return container;
   }
 
-  void _checkState() {
-    if (_frozen) {
-      throw new StateError('Container already created. This instance of the ContainerBuilder cannot be used anymore.');
+  void _loadProviders() {
+    for (var provider in _providers) {
+      provider.register(this);
     }
+  }
+
+  void _init() {
+    _parameters = new Map<String, Object>();
+    _factories = new Map<String, ServiceFactory>();
+    _providers = new Set<ServiceProvider>();
   }
 }

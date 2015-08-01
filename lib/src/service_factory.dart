@@ -4,5 +4,5 @@
 
 part of dimple;
 
-/// Signature of function for instantiation of a service in the container.
+/// Signature for a factory for instantiation of a service in the container.
 typedef Object ServiceFactory(Container c);
