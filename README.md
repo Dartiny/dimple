@@ -22,7 +22,7 @@ builder
 	..addService(/* ... */)
 	..addService(/* ... */);
 	
-// Create the a `Container` instance:
+// Create the a Container instance:
 var container = new ContainerBuilder().build();
 ```
 
