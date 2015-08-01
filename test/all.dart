@@ -3,9 +3,7 @@
 // MIT license that can be found in the LICENSE file.
 
 import 'dimple_test.dart' as dimple_test;
-import 'errors_test.dart' as errors_test;
 
 void main() {
   dimple_test.main();
-  errors_test.main();
 }
