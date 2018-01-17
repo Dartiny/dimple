@@ -1,6 +1,8 @@
 Dimple
 ======
 
+🚫 **(This project is no longer maintained.)**
+
 A simple Dependency Injection and Service Container
 
 *(Inspired by [Pimple][1], simple dependency injection container for PHP)*.
